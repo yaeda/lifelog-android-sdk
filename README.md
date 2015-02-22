@@ -3,24 +3,22 @@ Lifelog Android SDK
 
 Andorid SDK of Lifelog API
 
-
-
 ## Examples
 Androidよくわかんないけど，こんなかんじ？
 
 ### Authentication
 ```java
 /* create instance */
-final Lifelog lifelog = Lifelog.getInstance(this);
+final Lifelog lifelog = new Lifelog(this);
 lifelog.setCredential(CLIENT_ID, CLIENT_SECRET);
 lifelog.setScope(Lifelog.Scope.READ_PROFILE    |
                  Lifelog.Scope.READ_ACTIVITIES |
                  Lifelog.Scope.READ_LOCATIONS);
 
 /* call api to get access token */
-lifelog.getAccessToken(code, new Lifelog.TokenCallback() {
+lifelog.getAccessToken(code, new TokenCallback() {
   @Override
-  publib void onSuccess(Lifelog.Token token) {
+  publib void onSuccess(Token token) {
     /* set token */
     lifelog.setToken(token);
   }
@@ -33,9 +31,9 @@ lifelog.getAccessToken(code, new Lifelog.TokenCallback() {
 
 ### Call API
 ```java
-lifelog.getActivities(new Lifelog.LogCallback<List<Lifelog.Activity>>() {
+lifelog.getActivities(new LogCallback<Activity>() {
   @Override
-  publib void onSuccess(<List<Lifelog.Activity>> activities) {
+  publib void onSuccess(List<Activity> activities) {
   }
 
   @Override
@@ -51,16 +49,16 @@ Date now = new Date();
 Date eightHourBefore = new Date(System.currentTimeMillis() - TimeUnit.HOURS.toMillis(8));
 
 /* build query */
-Lifelog.Query query = new Lifelog.Query();
+Lifelog.Query query = new Query();
 query.setStartTime(eightHourBefore);
 query.setEndTime(now);
 query.setType(Lifelog.Type.PHYSICAL);
 query.setLimit(100);
 
 /* call api */
-lifelog.getActivities(query, new Lifelog.LogCallback<List<Lifelog.Activity>>() {
+lifelog.getActivities(query, new LogCallback<Activity>() {
   @Override
-  publib void onSuccess(<List<Lifelog.Activity>> activities) {
+  publib void onSuccess(List<Activity> activities) {
   }
 
   @Override
@@ -102,9 +100,9 @@ lifelog.getActivities(query, new Lifelog.LogCallback<List<Lifelog.Activity>>() {
 ## Classes / Interfaces
 
 ### Lifelog
-- `public static getInstance(Context context)`
+- `public Lifelog(Context context)`
 - `public void setCredential(String clientId, String clientSecret)`
-- `public void setScope(Lifelog.Scope scope)`
+- `public void setScope(int scope)`
 - `public void setToken(Token token)`
 - `public void cancel()`
 - `public void getAccessToken(String code, TokenCallback callback)`
