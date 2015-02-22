@@ -105,38 +105,38 @@ lifelog.getActivities(query, new Lifelog.LogCallback<List<Lifelog.Activity>>() {
 - `public static getInstance(Context context)`
 - `public void setCredential(String clientId, String clientSecret)`
 - `public void setScope(Lifelog.Scope scope)`
-- `public void setToken(Lifelog.Token token)`
+- `public void setToken(Token token)`
 - `public void cancel()`
-- `public void getAccessToken(String code, Lifelog.TokenCallback callback)`
-- `public void refreshToken(Lifelog.TokenCallback callback)`
-- `public void getProfile(Lifelog.LogCallback<List<Lifelog.Profile>> callback)`
-- `public void getActivities(Lifelog.LogCallback<List<Lifelog.Activity>> callback)`
-- `public void getActivities(Lifelog.Query query, Lifelog.LogCallback<List<Lifelog.Activity>> callback)`
-- `public void getLocations(Lifelog.LogCallback<List<Lifelog.Location> callback>)`
-- `public void getLocations(Lifelog.Query query, Lifelog.LogCallback<List<Lifelog.Location> callback>)`
+- `public void getAccessToken(String code, TokenCallback callback)`
+- `public void refreshToken(TokenCallback callback)`
+- `public void getProfile(LogCallback<Profile> callback)`
+- `public void getActivities(LogCallback<Activity> callback)`
+- `public void getActivities(Query query, LogCallback<Activity> callback)`
+- `public void getLocations(LogCallback<Location> callback)`
+- `public void getLocations(Query query, LogCallback<Location> callback)`
 
-### Lifelog.Query
+### Query
 - `public void setStartTime(Date date)`
 - `public void setEndTime(Date date)`
 - `public void setType(Lifelog.Type type)`
 - `public void setLimit(int limit)`
 
-### Lifelog.Token
+### Token
 - `public void setAccessToken(String accessToken)`
 - `public void setRefreshToken(String refreshToken)`
 - `public String getAccessToken()`
 - `public String getRefreshToken()`
 
-### Lifelog.Profile
+### Profile
 
-### Lifelog.Activity
+### Activity
 
-### Lifelog.Location
+### Location
 
-### Lifelog.TokenCallback
-- `public void onSuccess(Lifelog.Token token)`
+### TokenCallback
+- `public void onSuccess(Token token)`
 - `public void onError(int code, String message)`
 
-### Lifelog.LogCallback<List<T>>
+### LogCallback&lt;T&gt;
 - `public void onSuccess(List<T> logs)`
 - `public void onError(int code, String message)`
