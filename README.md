@@ -3,8 +3,10 @@ Lifelog Android SDK
 
 Andorid SDK of Lifelog API
 
+[Lifelog API | Sony Developer World](https://developer.sony.com/develop/services/lifelog-api/)
+
 ## Examples
-Androidよくわかんないけど，こんなかんじ？
+Android/Javaよくわかんないけど，こんなかんじ？
 
 ### Authentication
 ```java
